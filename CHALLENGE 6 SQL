@@ -1,0 +1,24 @@
+1ER select:
+mysql> SELECT name, COUNT(*) as nb_team_members FROM player
+JOIN wizard ON wizard.id=player.wizard_id JOIN team ON team.id=player.team_id GROUP BY name ORDER BY nb_team_members DESC;
++------------+-----------------+
+| name       | nb_team_members |
++------------+-----------------+
+| Gryffindor |              36 |
+| Slytherin  |              21 |
+| Ravenclaw  |              15 |
+| Hufflepuff |              12 |
++------------+-----------------+
+4 rows in set (0.00 sec)
+
+2ème SELECT:
+mysql> SELECT name, COUNT(*) as nb_team_members FROM player JOIN wizard ON wizard.id=player.wizard_id JOIN team ON team.id=player.team_id GROUP BY name HAVING nb_team_members >14 ORDER BY name ;
++------------+-----------------+
+| name       | nb_team_members |
++------------+-----------------+
+| Gryffindor |              36 |
+| Ravenclaw  |              15 |
+| Slytherin  |              21 |
++------------+-----------------+
+3 rows in set (0.00 sec)
+
