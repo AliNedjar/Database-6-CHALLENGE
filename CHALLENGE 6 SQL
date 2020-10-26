@@ -22,3 +22,19 @@ mysql> SELECT name, COUNT(*) as nb_team_members FROM player JOIN wizard ON wizar
 +------------+-----------------+
 3 rows in set (0.00 sec)
 
+3ème SELECT:
+mysql> SELECT name, firstname, lastname FROM player JOIN wizard ON wizard.id=player.wizard_id JOIN team ON team.id=player.team_id WHERE DAYOFWEEK(enrollment_date) = 2 AND name = 'Gryffindor'  ORDER BY enrollment_date ;
++------------+-----------+------------+
+| name       | firstname | lastname   |
++------------+-----------+------------+
+| Gryffindor | George    | Weasley    |
+| Gryffindor | Alice     | Longbottom |
+| Gryffindor | Cadogan   |            |
+| Gryffindor | Godric    | Gryffindor |
+| Gryffindor | Sirius    | Black      |
+| Gryffindor | Aberforth | Dumbledore |
+| Gryffindor | Augusta   | Longbottom |
++------------+-----------+------------+
+7 rows in set (0.00 sec)
+
+
